@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Myntra‑inspired Clone — Header + Hero Slideshow + Dropdowns</title>
+  <style>
+    :root{--accent:#ff3d6f;--muted:#6b7280;--bg:#f7f7fb;--card:#fff;--shadow:0 6px 18px rgba(16,24,40,0.08)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#111;background:var(--bg)}
+
+    header{background:#fff;padding:10px 30px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;box-shadow:var(--shadow)}
+    .logo img{height:40px}
+
+    nav{display:flex;gap:22px;align-items:center;font-weight:600;font-size:14px;position:relative}
+    nav .dropdown{position:relative}
+    nav a{color:#111;text-decoration:none;position:relative;padding:8px 0;display:inline-block}
+    nav a.new::after{content:'NEW';color:var(--accent);font-size:10px;font-weight:700;position:absolute;top:-10px;right:-22px}
+
+    nav .menu{display:none;position:absolute;top:100%;left:0;background:#fff;box-shadow:var(--shadow);padding:15px;min-width:200px;z-index:50}
+    nav .menu a{display:block;padding:6px 10px;color:#333;font-weight:500;font-size:13px}
+    nav .menu a:hover{background:#f5f5f5}
+    nav .dropdown:hover .menu{display:block}
+
+    .searchbar{flex:1;max-width:450px;display:flex;align-items:center;background:#f5f5f6;border-radius:6px;padding:8px 12px;margin:0 20px}
+    .searchbar input{flex:1;border:none;background:transparent;outline:none;font-size:14px}
+    .searchbar svg{width:16px;height:16px;color:#555;margin-right:8px}
+
+    .header-icons{display:flex;align-items:center;gap:26px;font-size:13px;font-weight:600}
+    .header-icons div{text-align:center;cursor:pointer}
+    .header-icons svg{display:block;margin:0 auto 4px auto;width:20px;height:20px}
+    .bag{position:relative}
+    .bag .count{position:absolute;top:-6px;right:-10px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center}
+
+    @media(max-width:900px){nav{display:none}.searchbar{max-width:100%}}
+
+    /* Hero slideshow */
+    .hero{position:relative;overflow:hidden;height:400px;width:100%}
+    .slides{display:flex;transition:transform 0.6s ease-in-out;height:100%}
+    .slide{min-width:100%;height:100%}
+    .slide img{width:100%;height:100%;object-fit:cover}
+
+    .controls{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;transform:translateY(-50%);padding:0 20px}
+    .controls button{background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:36px;height:36px;cursor:pointer}
+    .dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+    .dot{width:10px;height:10px;border-radius:50%;background:#ddd;cursor:pointer}
+    .dot.active{background:var(--accent)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo"><img src="https://cdn.iconscout.com/icon/free/png-512/myntra-2709168-2249158.png" alt="Logo"></div>
+
+  <nav>
+    <div class="dropdown">
+      <a href="#">MEN</a>
+      <div class="menu">
+        <a href="#">T-Shirts</a>
+        <a href="#">Shirts</a>
+        <a href="#">Jeans</a>
+        <a href="#">Shoes</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">WOMEN</a>
+      <div class="menu">
+        <a href="#">Dresses</a>
+        <a href="#">Tops</a>
+        <a href="#">Jeans</a>
+        <a href="#">Heels</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">KIDS</a>
+      <div class="menu">
+        <a href="#">Boys Clothing</a>
+        <a href="#">Girls Clothing</a>
+        <a href="#">Toys</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">HOME</a>
+      <div class="menu">
+        <a href="#">Bedsheets</a>
+        <a href="#">Curtains</a>
+        <a href="#">Decor</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">BEAUTY</a>
+      <div class="menu">
+        <a href="#">Makeup</a>
+        <a href="#">Skincare</a>
+        <a href="#">Haircare</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">GENZ</a>
+      <div class="menu">
+        <a href="#">Streetwear</a>
+        <a href="#">Oversized Tees</a>
+        <a href="#">Sneakers</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#" class="new">STUDIO</a>
+      <div class="menu">
+        <a href="#">Looks</a>
+        <a href="#">Collections</a>
+        <a href="#">Trends</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="searchbar">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+    <input type="text" placeholder="Search for products, brands and more"/>
+  </div>
+
+  <div class="header-icons">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.797.635 6.879 1.804M15 10a3 3 0 11-6 0 6 6 0 016 0z"/></svg>
+      <div>Profile</div>
+    </div>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.682l-7.682-7.682a4.5 4.5 0 010-6.364z"/></svg>
+      <div>Wishlist</div>
+    </div>
+    <div class="bag">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14l1 12H4L5 8zM9 8V6a3 3 0 116 0v2"/></svg>
+      <div>Bag</div>
+      <div class="count">1</div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="slides">
+    <div class="slide"><img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2023/2/14/7cec9b95-a683-473c-aca8-cc510821b1cd1676394720493-Desktop-Banner.gif" alt="Banner 1"></div>
+    <div class="slide"><img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/28/84b6a214-9eb3-49eb-9f9d-72cec56ec5d71659019908592-Indian-Wear_DK--1-.jpg" alt="Banner 2"></div>
+    <div class="slide"><img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/28/6107d28b-2bcb-44e6-9743-655b54550b8f1659020199598-Workwear_Desk--1-.jpg" alt="Banner 3"></div>
+    <div class="slide"><img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/6/27/53b4daed-cd2c-4111-86c5-14f737eceb351656325318973-Handbags_Desk.jpg" alt="Banner 4"></div>
+  </div>
+
+  <div class="controls">
+    <button id="prev">❮</button>
+    <button id="next">❯</button>
+  </div>
+  <div class="dots"></div>
+</section>
+
+<script>
+  const slides=document.querySelector('.slides');
+  const slideCount=document.querySelectorAll('.slide').length;
+  let index=0;
+  const dotsContainer=document.querySelector('.dots');
+  for(let i=0;i<slideCount;i++){
+    const dot=document.createElement('div');
+    dot.classList.add('dot');
+    if(i===0)dot.classList.add('active');
+    dot.addEventListener('click',()=>{index=i;updateSlide();});
+    dotsContainer.appendChild(dot);
+  }
+  const dots=document.querySelectorAll('.dot');
+  function updateSlide(){
+    slides.style.transform=`translateX(-${index*100}%)`;
+    dots.forEach((d,i)=>d.classList.toggle('active',i===index));
+  }
+  document.getElementById('next').onclick=()=>{index=(index+1)%slideCount;updateSlide();}
+  document.getElementById('prev').onclick=()=>{index=(index-1+slideCount)%slideCount;updateSlide();}
+  setInterval(()=>{index=(index+1)%slideCount;updateSlide();},5000);
+</script>
+
+</body>
+</html>
