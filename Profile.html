@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Myntra - Login</title>
+  <style>
+    :root{--accent:#ff3d6f;--muted:#6b7280;--bg:#fdf2f8;--card:#fff;--shadow:0 6px 18px rgba(16,24,40,0.08)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#111;background:var(--bg)}
+
+    header{background:#fff;padding:10px 30px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;box-shadow:var(--shadow)}
+    .logo img{height:40px;cursor:pointer}
+
+    nav{display:flex;gap:22px;align-items:center;font-weight:600;font-size:14px;position:relative}
+    nav .dropdown{position:relative}
+    nav a{color:#111;text-decoration:none;position:relative;padding:8px 0;display:inline-block}
+    nav a.new::after{content:'NEW';color:var(--accent);font-size:10px;font-weight:700;position:absolute;top:-10px;right:-22px}
+    nav .menu{display:none;position:absolute;top:100%;left:0;background:#fff;box-shadow:var(--shadow);padding:15px;min-width:200px;z-index:50}
+    nav .menu a{display:block;padding:6px 10px;color:#333;font-weight:500;font-size:13px}
+    nav .menu a:hover{background:#f5f5f5}
+    nav .dropdown:hover .menu{display:block}
+
+    .searchbar{flex:1;max-width:450px;display:flex;align-items:center;background:#f5f5f6;border-radius:6px;padding:8px 12px;margin:0 20px}
+    .searchbar input{flex:1;border:none;background:transparent;outline:none;font-size:14px}
+    .searchbar svg{width:16px;height:16px;color:#555;margin-right:8px}
+
+    .header-icons{display:flex;align-items:center;gap:26px;font-size:13px;font-weight:600}
+    .header-icons a{text-align:center;cursor:pointer;color:#111;text-decoration:none}
+    .header-icons svg{display:block;margin:0 auto 4px auto;width:20px;height:20px}
+    .bag{position:relative}
+    .bag .count{position:absolute;top:-6px;right:-10px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center}
+
+    /* Login Section */
+    main{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px 0;
+    }
+    .login-container{
+      background:#fff;
+      box-shadow:var(--shadow);
+      border-radius:8px;
+      max-width:380px;
+      width:100%;
+      padding:0;
+    }
+    .banner img{
+      width:100%;
+      border-radius:8px 8px 0 0;
+    }
+    .form-section{
+      padding:20px;
+    }
+    .form-section h2{
+      font-size:18px;
+      font-weight:700;
+      margin-bottom:20px;
+    }
+    .form-section input{
+      width:100%;
+      padding:12px;
+      font-size:14px;
+      border:1px solid #ccc;
+      border-radius:4px;
+      margin-bottom:16px;
+    }
+    .form-section label{
+      font-size:13px;
+      color:#555;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      margin-bottom:16px;
+    }
+    .form-section a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .form-section button{
+      width:100%;
+      padding:12px;
+      background:#555;
+      color:#fff;
+      border:none;
+      border-radius:4px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .form-section p{
+      font-size:13px;
+      margin-top:14px;
+      color:#555;
+    }
+    .form-section p a{color:var(--accent)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index.html">
+      <img src="https://cdn.iconscout.com/icon/free/png-512/myntra-2709168-2249158.png" alt="Logo">
+    </a>
+  </div>
+
+  <nav>
+    <div class="dropdown">
+      <a href="#">MEN</a>
+      <div class="menu">
+        <a href="T-Shirts.html">T-Shirts</a>
+        <a href="Shirts.html">Shirts</a>
+        <a href="Jeans.html">Jeans</a>
+        <a href="Shoes.html">Shoes</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">WOMEN</a>
+      <div class="menu">
+        <a href="Dresses.html">Dresses</a>
+        <a href="Tops.html">Tops</a>
+        <a href="Jeans.html">Jeans</a>
+        <a href="Heels.html">Heels</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">KIDS</a>
+      <div class="menu">
+        <a href="Boys Clothing.html">Boys Clothing</a>
+        <a href="Girls Clothing.html">Girls Clothing</a>
+        <a href="Toys.html">Toys</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">HOME</a>
+      <div class="menu">
+        <a href="Bedsheets.html">Bedsheets</a>
+        <a href="Curtains.html">Curtains</a>
+        <a href="Decor.html">Decor</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">BEAUTY</a>
+      <div class="menu">
+        <a href="Makeup.html">Makeup</a>
+        <a href="Skincare.html">Skincare</a>
+        <a href="Haircare.html">Haircare</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">GENZ</a>
+      <div class="menu">
+        <a href="Streetwear.html">Streetwear</a>
+        <a href="Oversized Tees.html">Oversized Tees</a>
+        <a href="Sneakers.html">Sneakers</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#" class="new">STUDIO</a>
+      <div class="menu">
+        <a href="Looks.html">Looks</a>
+        <a href="Collections.html">Collections</a>
+        <a href="Trends.html">Trends</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="searchbar">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+    <input type="text" placeholder="Search for products, brands and more"/>
+  </div>
+
+  <div class="header-icons">
+    <a href="profile.html">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.797.635 6.879 1.804M15 10a3 3 0 11-6 0 6 6 0 016 0z"/></svg>
+      <div>Profile</div>
+    </a>
+    <a href="wishlist.html">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.682l-7.682-7.682a4.5 4.5 0 010-6.364z"/></svg>
+      <div>Wishlist</div>
+    </a>
+    <a href="bag.html" class="bag">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14l1 12H4L5 8zM9 8V6a3 3 0 116 0v2"/></svg>
+      <div>Bag</div>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="login-container">
+    <div class="banner">
+      <img src="https://constant.myntassets.com/pwa/assets/img/banner_login_landing_300.jpg" alt="Offer Banner">
+    </div>
+    <div class="form-section">
+      <h2><strong>Login</strong> or <strong>Signup</strong></h2>
+      <input type="text" placeholder="+91  Mobile Number*" />
+      <label>
+        <input type="checkbox">By continuing, I agree to the Terms of Use Privacy Policy and I am above 18 years old.
+      </label>
+      <button>CONTINUE</button>
+      <p>Have trouble logging in? <a href="#">Get help</a></p>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Myntra - Bag</title>
+  <style>
+    :root {
+      --accent: #ff3f6c;
+      --muted: #6b7280;
+      --bg: #fff;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Inter,Arial,Helvetica,sans-serif;background:#fff;color:#333;}
+
+
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 40px;
+      border-bottom:1px solid #eee;
+    }
+    .logo img{height:42px;cursor:pointer}
+    .checkout-steps {
+      display:flex;
+      gap:40px;
+      font-weight:600;
+      font-size:14px;
+      letter-spacing:1px;
+    }
+    .checkout-steps div {
+      color:#555;
+      position:relative;
+    }
+    .checkout-steps div.active {
+      color:#2cc9a5;
+    }
+    .checkout-steps div::after {
+      content:"";
+      position:absolute;
+      bottom:-6px;
+      left:0;
+      width:100%;
+      height:2px;
+      background:transparent;
+    }
+    .checkout-steps .active::after {
+      background:#2cc9a5;
+    }
+
+    .secure {
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:13px;
+      font-weight:600;
+      color:#333;
+    }
+    .secure svg {
+      width:18px;
+      height:18px;
+      color:#2cc9a5;
+    }
+
+
+    .empty-bag {
+      text-align:center;
+      margin-top:100px;
+    }
+    .empty-bag img {
+      width:140px;
+      margin-bottom:20px;
+    }
+    .empty-bag h2 {
+      font-size:20px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .empty-bag p {
+      font-size:14px;
+      color:#666;
+      margin-bottom:22px;
+    }
+    .empty-bag button {
+      padding:12px 28px;
+      border:1px solid var(--accent);
+      background:#fff;
+      color:var(--accent);
+      font-size:14px;
+      font-weight:700;
+      border-radius:3px;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .empty-bag button:hover {
+      background:var(--accent);
+      color:#fff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index.html">
+      <img src="https://cdn.freelogovectors.net/wp-content/uploads/2021/02/myntra-logo-freelogovectors.net_.png" alt="Myntra">
+    </a>
+  </div>
+
+  <div class="checkout-steps">
+    <div class="active">BAG</div>
+    <div>ADDRESS</div>
+    <div>PAYMENT</div>
+  </div>
+
+  <div class="secure">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 .34-.07.67-.2.97L9.53 15.7c-.16.32-.34.63-.53.92A9.984 9.984 0 0112 2a9.984 9.984 0 013 14.62c-.2-.29-.37-.6-.53-.92l-2.27-3.73c-.13-.3-.2-.63-.2-.97z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22c-4.97 0-9-4.03-9-9h18c0 4.97-4.03 9-9 9z"/>
+    </svg>
+    100% SECURE
+  </div>
+</header>
+
+<main>
+  <div class="empty-bag">
+    <h2>Hey, it feels so light!</h2>
+    <p>There is nothing in your bag. Let's add some items.</p>
+    <a href="wishlist.html"><button>ADD ITEMS FROM WISHLIST</button></a>
+  </div>
+</main>
+
+</body>
+</html>
